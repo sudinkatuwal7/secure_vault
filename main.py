@@ -21,6 +21,7 @@ def generate_password():
     shuffle(password_list)                                         #  ['a', 'b', 'c', '!', '#', '1', '2']
 
     password = "".join(password_list)                              # abc!#12     by join method
+    password_entry.delete(0, END)                             # deleting before generating new one
     password_entry.insert(0, password)
     pyperclip.copy(password)
 
