@@ -67,6 +67,9 @@ Here is a preview of the application:
 
 <img width="1335" height="892" alt="Screenshot (358)" src="https://github.com/user-attachments/assets/6ddc9cfc-dbc9-474f-a2fb-0dbcbb228292" />
 
+---
+
+<img width="1791" height="768" alt="Screenshot (359)" src="https://github.com/user-attachments/assets/e2e3ecba-a05a-4a32-95ef-93253def3732" />
 
 ---
 
