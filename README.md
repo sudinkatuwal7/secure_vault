@@ -5,7 +5,8 @@ A simple GUI-based Password Manager built using **Python and Tkinter**.
 This application allows users to:
 - Generate secure random passwords
 - Copy passwords automatically to clipboard
-- Save login credentials locally to a file
+- Save login credentials locally in a JSON file
+- Search saved credentials by website
 
 ---
 
@@ -13,10 +14,12 @@ This application allows users to:
 
 - 🔑 Secure password generator
 - 📋 Automatic clipboard copy
-- 💾 Save credentials to a local file
+- 💾 Save credentials to data.json
 - 🖥 Simple and clean Tkinter GUI
 - 🧠 Beginner-friendly project
-
+- 🔍 Search saved credentials
+- 🧹 Case-insensitive website handling (Facebook = facebook)
+  
 ---
 
 ## 🛠 Built With
@@ -24,6 +27,7 @@ This application allows users to:
 - Python 3
 - Tkinter (GUI)
 - Random module
+- JSON module
 - Pyperclip (clipboard support)
 
 ---
@@ -51,10 +55,11 @@ python main.py
 
 ### 📁 Project Structure
 ```
-project-folder/
+secure_vault/
 │
 ├── main.py
 ├── logo.png
+├── data.json        # Created automatically after first save
 ├── README.md
 └── .gitignore
 ```
@@ -65,11 +70,15 @@ project-folder/
 
 Here is a preview of the application:
 
-<img width="1335" height="892" alt="Screenshot (358)" src="https://github.com/user-attachments/assets/6ddc9cfc-dbc9-474f-a2fb-0dbcbb228292" />
+<img width="2560" height="1440" alt="Screenshot (367)" src="https://github.com/user-attachments/assets/3f2c7b35-4fe2-4754-9d4e-d53ef910506c" />
 
 ---
 
-<img width="1791" height="768" alt="Screenshot (359)" src="https://github.com/user-attachments/assets/e2e3ecba-a05a-4a32-95ef-93253def3732" />
+<img width="2198" height="1048" alt="Screenshot (369)" src="https://github.com/user-attachments/assets/d31a6d69-e17f-4fcf-842d-5f5511fddbd8" />
+
+---
+
+<img width="2145" height="952" alt="Screenshot (372)" src="https://github.com/user-attachments/assets/3f8ed729-4d20-482b-9af6-ccda8f72a460" />
 
 ---
 
@@ -79,13 +88,16 @@ Here is a preview of the application:
 
 - Allows users to enter website and email
 
-- Saves credentials into a local file (password.txt)
+- Saves credentials into a local JSON file (data.json)
 
 - Copies generated password automatically to clipboard
+  
+- Allows searching saved credentials by website
+
 
 ---
 
 ### ⚠️ Note
 
-This project stores passwords in a plain text file for learning purposes.
+This project stores passwords in a local JSON file for learning purposes.
 It is not encrypted and should not be used for real sensitive data.
