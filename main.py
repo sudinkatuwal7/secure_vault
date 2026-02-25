@@ -28,7 +28,7 @@ def generate_password():
 # ------------------------------FIND PASSWORD---------------------------------#
 
 def find_password():
-    website = website_entry.get()
+    website = website_entry.get().strip().lower()
     try:
         with open("data.json") as data_file:
             data = json.load(data_file)
@@ -46,7 +46,7 @@ def find_password():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save():
-    website = website_entry.get()
+    website = website_entry.get().strip().lower()
     email = email_entry.get()
     password = password_entry.get()
 
