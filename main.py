@@ -36,19 +36,35 @@ def save():
     email = email_entry.get()
     password = password_entry.get()
 
+    new_data = {
+        website: {
+            "email": email,
+            "password": password
+        }
+    }
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo("Oops!!", "Please enter all required information")
 
     else:
-        is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \n"
-                                                  f"Email: {email}\nPassword: {password}\n"
-                                                  f"Is it okay to save?")
-        if is_ok:
-        # messagebox.showinfo("Success", "Password has been saved")
-            with open("password.txt", "a") as data_file:
-                data_file.write(f"{website} | {email} | {password}\n")
-                website_entry.delete(0, END)
-                password_entry.delete(0, END)
+        try:
+            with open("data.json", "r") as data_file:
+                # reading the old data
+                data = json.load(data_file)
+
+        except FileNotFoundError:
+            with open("data.json", "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
+
+        else:
+            # updating the new data
+            data.update(new_data)
+
+            with open("data.json", "w") as data_file:
+            # saving the new data
+                json.dump(data, data_file, indent=4)
+        finally:
+            website_entry.delete(0, END)
+            password_entry.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -91,6 +107,26 @@ generate_button.grid(column=2, row=3)
 add_button = Button(text="Add", width=45, command=save)
 add_button.grid(column=1, row=4, columnspan=2)
 
-
 window.mainloop()
 
+
+
+
+# def save():
+#     website = website_entry.get()
+#     email = email_entry.get()
+#     password = password_entry.get()
+
+#     if len(website) == 0 or len(password) == 0:
+#         messagebox.showinfo("Oops!!", "Please enter all required information")
+
+#     else:
+#         is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \n"
+#                                                   f"Email: {email}\nPassword: {password}\n"
+#                                                   f"Is it okay to save?")
+#         if is_ok:
+#         # messagebox.showinfo("Success", "Password has been saved")
+#             with open("password.txt", "a") as data_file:
+#                 data_file.write(f"{website} | {email} | {password}\n")
+#                 website_entry.delete(0, END)
+#                 password_entry.delete(0, END)
